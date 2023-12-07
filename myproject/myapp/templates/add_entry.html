@@ -1,0 +1,11 @@
+<!-- myproject/myapp/templates/add_entry.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Add Entry</h2>
+  <form method="post" action="{% url 'add_entry' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Entry</button>
+  </form>
+{% endblock %}

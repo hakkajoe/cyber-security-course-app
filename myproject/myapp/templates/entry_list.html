@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Your Entries</h2>
+  {% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }}! <a href="{% url 'logout' %}">Logout</a></p>
+    <p><a href="{% url 'add_entry' %}">Add Entry</a></p>
+  {% endif %}
+  <ul>
+    {% for entry in entries %}
+      <li>{{ entry.text }}</li>
+      <a href="{% url 'delete_entry' entry.id %}">Delete</a>
+    {% endfor %}
+  </ul>
+{% endblock %}

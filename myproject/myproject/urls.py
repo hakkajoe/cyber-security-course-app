@@ -1,5 +1,5 @@
 """
-URL configuration for mysite project.
+URL configuration for myproject project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -15,9 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from myapp import views as myapp_views
 
 urlpatterns = [
-    path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('', include('myapp.urls')),
+    path('logout/', myapp_views.logout_view, name='logout'),
+    path('accounts/login/', auth_views.LoginView.as_view(template_name='registration/login.html', success_url='/'), name='login'),
 ]
