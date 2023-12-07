@@ -5,6 +5,8 @@ from django.urls import reverse
 class Entry(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     text = models.TextField()
+    image_url = models.URLField(blank=True, null=True)
+
 
     def get_absolute_url(self):
         return reverse('entry_list')

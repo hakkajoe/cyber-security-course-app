@@ -9,7 +9,11 @@
   <ul>
     {% for entry in entries %}
       <li>{{ entry.text }}</li>
+      {% if entry.image_url %}
+        <img src="{{ entry.image_url }}" alt="Uploaded Image" style="max-width: 240px; height: auto;">
+      {% endif %}
       <a href="{% url 'delete_entry' entry.id %}">Delete</a>
     {% endfor %}
   </ul>
+  <br>
 {% endblock %}

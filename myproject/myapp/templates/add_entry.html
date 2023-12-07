@@ -4,8 +4,15 @@
 {% block content %}
   <h2>Add Entry</h2>
   <form method="post" action="{% url 'add_entry' %}">
-    {% csrf_token %}
+    <!-- {% csrf_token %} -->
     {{ form.as_p }}
+
+    <label for="image_url">Image URL:</label>
+    <input type="text" name="image_url">
+    {% if form.errors.image_url %}
+      <p class="error">{{ form.errors.image_url }}</p>
+    {% endif %}
+
     <button type="submit">Save Entry</button>
   </form>
 {% endblock %}
