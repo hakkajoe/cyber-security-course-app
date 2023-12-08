@@ -7,19 +7,19 @@ pip install -r requirements.txt
 ```
 --->
 
-2. Navigate to the Project Directory:
+Navigate to the Project Directory:
 
 ```bash
 cd myproject
 ```
 
-3. Apply Migrations:
+Apply Migrations:
 
 ```bash
 python3 manage.py migrate
 ```
 
-4. Run the Development Server:
+Run the Development Server:
 
 ```bash
 python3 manage.py runserver
