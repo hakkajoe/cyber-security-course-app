@@ -1,10 +1,9 @@
 ## How to run the application
 
-[comment]: # (Install Dependencies:
-```bash
-pip install -r requirements.txt
-```
-)
+[comment]: # (Install Dependencies:)
+[comment]: # (```bash)
+[comment]: # (pip install -r requirements.txt)
+[comment]: # (```)
 
 Navigate to the Project Directory:
 
