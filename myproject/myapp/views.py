@@ -7,14 +7,31 @@ from django.contrib.auth import login, logout
 from django.urls import reverse_lazy
 from django.views.generic.edit import DeleteView
 from django.views.decorators.csrf import csrf_exempt
+import requests
+from django.http import HttpResponse
 
 @login_required
 def entry_list(request):
-    entries = Entry.objects.filter(user=request.user)
+    search_query = request.GET.get('search', '')
+    entries = Entry.objects.raw('SELECT * FROM myapp_entry WHERE text LIKE \'%{}%\''.format(search_query))
+    # entries = Entry.objects.filter(text__icontains=search_query, user=request.user)
     return render(request, 'entry_list.html', {'entries': entries})
 
+
 # def is_valid_url(url):
-#     return url.startswith('http://') or url.startswith('https://')
+#   malicious_patterns = [
+#       'http://trust-wallet-assests-update-inforamtions.codeanyapp.com/',
+#       'https://onedriveacc.cookie2275.workers.dev/?sso_reload=true/	',
+#       'https://leboncoin.offer5812.bid/buy/231738365'
+#       '...',
+#   ]
+
+#   if not (url.startswith('http://') or url.startswith('https://')):
+#       return False
+
+#   for pattern in malicious_patterns:
+#       if pattern in url:
+#           return False
 
 @csrf_exempt
 @login_required
@@ -22,11 +39,20 @@ def add_entry(request):
     if request.method == 'POST':
         form = EntryForm(request.POST)
         image_url = request.POST.get('image_url', '')
+        if image_url:
+            try:
+                response = requests.get(image_url)
+                if response.status_code == 200:
+                    pass
+                else:
+                    return HttpResponse('Unable to retrieve image from the provided URL')
+            except requests.RequestException:
+                return HttpResponse('Invalid URL')
+        # if not is_valid_url(image_url):
+        #     return HttpResponse('Invalid URL')
         # if form.is_valid():
         entry = form.save(commit=False)
         entry.user = request.user
-        # if is_valid_url(image_url):
-        #     return HttpResponse('Invalid URL')
         entry.image_url = image_url
         entry.save()
         return redirect('entry_list')
