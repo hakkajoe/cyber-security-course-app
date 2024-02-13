@@ -68,10 +68,10 @@ The security flaw can be fixed by using the .filter() function, which is a stand
 
 
 # References:
-[1] Cross Site Request Forgery (CSRF). DOI: https://owasp.org/www-community/attacks/csrf
-[2] Server-Side Request Forgery (SSRF). DOI: https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/
-[3] Vulnerable and Outdated Components. DOI: https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/
-[4] Django fixes SQL Injection vulnerability in new releases. DOI: https://www.bleepingcomputer.com/news/security/django-fixes-sql-injection-vulnerability-in-new-releases/
-[5] Security Misconfiguration, DOI: https://owasp.org/Top10/A05_2021-Security_Misconfiguration/
-[6] Cryptographic Failures, DOI: https://owasp.org/Top10/A02_2021-Cryptographic_Failures/
+[1] Cross Site Request Forgery (CSRF). DOI: https://owasp.org/www-community/attacks/csrf<br>
+[2] Server-Side Request Forgery (SSRF). DOI: https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/<br>
+[3] Vulnerable and Outdated Components. DOI: https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/<br>
+[4] Django fixes SQL Injection vulnerability in new releases. DOI: https://www.bleepingcomputer.com/news/security/django-fixes-sql-injection-vulnerability-in-new-releases/<br>
+[5] Security Misconfiguration, DOI: https://owasp.org/Top10/A05_2021-Security_Misconfiguration/<br>
+[6] Cryptographic Failures, DOI: https://owasp.org/Top10/A02_2021-Cryptographic_Failures/<br>
 [7] Injection, DOI: https://owasp.org/Top10/A03_2021-Injection/
