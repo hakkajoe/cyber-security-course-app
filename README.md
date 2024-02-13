@@ -1,3 +1,5 @@
+This an application created to demonstrate a variety of typical security flaws in modern software. Information about the specific security flaws found in the application can be found [here](https://github.com/hakkajoe/cyber-security-course-app/blob/main/flaws.md). 
+
 ## How to run the application
 
 Install Dependencies:
